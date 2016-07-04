@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 	
-	@RequestMapping(value = "/")
-	public ModelAndView init() {
-		return new ModelAndView("home");
-	}
+//	@RequestMapping(value = "/about")
+//	public ModelAndView init() {
+//		return new ModelAndView("about");
+//	}
 
 	@RequestMapping(value = "/about")
 	public ModelAndView getInfo() {
@@ -22,5 +22,9 @@ public class IndexController {
 	public @ResponseBody ModelAndView getContacts() {
 		return new ModelAndView("contact");
 	}
- 
+	@RequestMapping (value = { "/", " " })
+	public ModelAndView getHome() {
+		return new ModelAndView("home");
+	}
+	
 }
