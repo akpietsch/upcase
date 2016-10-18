@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Profile</title>
+<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+<link href="../../assets/css/upcase.css" rel="stylesheet"
+	type="text/css" />
+</head>
+<body>
+	<div th:replace="fragments/nav-bar-user :: nav-bar-user"></div>
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+		<li><a th:href="@{home}">Home</a></li>
+		<li class="active">Profile</li>
+	</ol>
+	<!-- End Breadcrumbs -->
+		<div class="row">
+			<div class="col-md-1"></div>
+			<!-- Title -->
+			<div class="col-md-2">
+				<h1 class="text-left">Your Profile</h1>
+			</div>
+	</div>
+	<hr></hr>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-2" style="padding-right:20px;">
+			<img 
+				src="http://www.freidaten.org/wp-content/uploads/2000px-Silver_-_replace_this_image_male.svg_.png"
+				width="150px" height="150px" class="avatar img-circle" alt="avatar"></img>
+		</div>
+		<div class="col-md-3 text-left">
+			<div class="inline">
+				<strong>User: </strong>
+				<h4 th:text="${user.lastName +', '+ user.firstName}">NAME</h4>
+			</div>
+			<div class="inline">
+				<strong>E-Mail:</strong>
+				<p th:text="${user.email}"></p>
+			</div>
+			<div class="inline">
+				<strong>Member since:</strong>
+				<p th:text="${user.creationDate}"></p>
+			</div>
+		</div>
+		<div class="col-md-3 text-left"></div>
+		<div class="col-md-4">
+			<div class="list-group">
+					<small><strong>Your Collections </strong></small>
+				<div class="list-group-item">
+					<div
+						th:replace="fragments/recent-collections :: recent-collections"></div>
+					<div
+						th:replace="fragments/recent-collections :: recent-collections"></div>
+					<div
+						th:replace="fragments/recent-collections :: recent-collections"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	<br></br>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
